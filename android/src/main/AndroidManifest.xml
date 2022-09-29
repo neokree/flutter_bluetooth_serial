@@ -1,7 +1,23 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="io.github.edufolly.flutterbluetoothserial">
-    <uses-permission android:name="android.permission.BLUETOOTH" />
+    xmlns:tools="http://schemas.android.com/tools"
+    package="io.github.edufolly.flutterbluetoothserial">
+    <!-- Request legacy Bluetooth permissions on older devices. -->
+    <!--
+    Note: Since Xiaomi devices have an incorrect implementation of the bluetooth spec,
+    the removal of maxSdkVersion (which is automatically set by Android Studio) makes them work either way
+    -->
+    <uses-permission
+        android:name="android.permission.BLUETOOTH"
+        tools:remove="android:maxSdkVersion" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <!-- Needed only if your app looks for Bluetooth devices.
+         If your app doesn't use Bluetooth scan results to derive physical
+         location information, you can strongly assert that your app
+         doesn't derive physical location. -->
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+    <!-- Needed only if your app communicates with already-paired Bluetooth devices. -->
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
 </manifest>

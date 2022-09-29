@@ -1,3 +1,7 @@
+## [0.4.1] - 2022-09-29
+
+Add Android 12 support
+
 ## [0.4.0] - 2021-08-17
 
 Update flutter plugin v2.
